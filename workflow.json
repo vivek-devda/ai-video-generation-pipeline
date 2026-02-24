@@ -25,7 +25,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer YOUR_OPENROUTER_API_KEY"
             }
           ]
         },
@@ -56,7 +56,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer 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"
+              "value": "Bearer YOUR_OPENROUTER_API_KEY"
             }
           ]
         },
