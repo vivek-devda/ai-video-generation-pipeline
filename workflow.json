@@ -1,0 +1,184 @@
+{
+  "name": "AI Video Automation Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2f21da14-0df0-4c04-9d4d-f4a21bfe0c14",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"openai/gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Generate a short unique idea for a 3D animated educational video in one sentence.\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "b9d320da-bfa1-4e6a-9b8b-6f0dc245e9ee",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"openai/gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Convert this idea into a simple visual image prompt using only keywords, no story, no title, no explanation. Example output: cute octopus underwater coral reef pixar style cinematic lighting vibrant colors. Idea: {{$node[\\\"Idea Generator\\\"].json[\\\"choices\\\"][0][\\\"message\\\"][\\\"content\\\"]}}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "39b1adc8-8dd3-49c5-abf3-57d83b6a50bf",
+      "name": "Image Prompt Generator"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17549893-0a8a-42df-b985-514d0d17d9e6",
+              "name": "image_url",
+              "value": "={{ \n\"https://picsum.photos/1024/1024?random=\" + Date.now()\n}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        0
+      ],
+      "id": "0fa6462e-2364-4a02-9812-9ed6d8de486a",
+      "name": "image generator"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://alexandra-resorbent-ronan.ngrok-free.dev/generate-video",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{$node[\"image generator\"].json[\"image_url\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        832,
+        0
+      ],
+      "id": "659e7392-b96d-429f-aa2f-58945fe2ddd6",
+      "name": "video generator"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Image Prompt Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Prompt Generator": {
+      "main": [
+        [
+          {
+            "node": "image generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "image generator": {
+      "main": [
+        [
+          {
+            "node": "video generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "881c950a-3dfd-418c-b544-f5a679f55b4d",
+  "meta": {
+    "instanceId": "f7d50cfa3b6e47905852a56acd0981e232dd8cfc819b554ca72736f6a8ce6211"
+  },
+  "id": "7fHnoVhjwyIcnUlr",
+  "tags": []
+}
