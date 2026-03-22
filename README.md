@@ -2,6 +2,12 @@
 
 This project is a custom-built AI pipeline that converts a simple user idea into a short video with visuals, captions, and background music.
 
+
+## 🎥 Demo
+
+https://github.com/vivek-devda/ai-video-generation-pipeline/assets/your-video-link
+
+
 ## 🚀 Features
 
 * 🔹 Takes a user topic as input
