@@ -1,108 +1,155 @@
 # 🎬 AI Video Generation Pipeline
 
-This project is a custom-built AI pipeline that converts a simple user idea into a short video with visuals, captions, and background music.
+An end-to-end AI-powered pipeline that transforms a simple text prompt into a structured multi-scene video with captions, visuals, and background music.
 
+This project demonstrates how real-world AI content systems are built using modular pipelines and media processing.
+
+---
 
 ## 🎥 Demo
 
-https://github.com/vivek-devda/ai-video-generation-pipeline/assets/your-video-link
+![Demo](assets/demo.gif)
 
-
-## 🚀 Features
-
-* 🔹 Takes a user topic as input
-* 🔹 Generates structured prompts (story-based)
-* 🔹 Uses AI-generated or manual images (Leonardo)
-* 🔹 Adds captions to each scene
-* 🔹 Combines images into a video with transitions and music
+> Example input: **"AI in healthcare"**
+> Output: A short video with multiple scenes, captions, and transitions.
 
 ---
 
-## 🧠 How it works
-
-```
-User Input (Topic)
-        ↓
-Prompt Generator (structured narrative)
-        ↓
-Image Source (manual / API-ready)
-        ↓
-Caption Overlay (PIL)
-        ↓
-Video Builder (MoviePy)
-        ↓
-Final Video Output
-```
-
----
-
-## 📌 Example
+## ⚡ What This Does
 
 Input:
 
 ```
-AI in healthcare
+"AI in healthcare"
 ```
 
 Output:
 
-* Scene 1: Problem in healthcare
-* Scene 2: Introduction of AI
-* Scene 3: AI helping humans
-* Scene 4: Improved life
-* Scene 5: Future vision
+* Structured story-based script
+* Scene-wise visual generation (manual/API-ready)
+* Caption overlay on each scene
+* Final compiled video (MP4 format)
+
+---
+
+## 🧩 Pipeline Overview
+
+User Input
+↓
+Prompt Generator (structured narrative)
+↓
+Image Generation (manual / API-ready)
+↓
+Caption Overlay (PIL)
+↓
+Video Builder (MoviePy)
+↓
+Final Video Output
+
+---
+
+## 📂 Sample Output
+
+* 🎬 Format: MP4
+* ⏱ Duration: ~30–60 seconds
+* 🎞 Scenes: 4–6
+* 📁 Output Location: `outputs/final_video.mp4`
+
+---
+
+## 🚀 Features
+
+* Converts a simple idea into a full video pipeline
+* Modular architecture (easy to extend)
+* Supports manual and API-based image generation
+* Automatic caption overlay for each scene
+* Video creation with transitions and background music
 
 ---
 
 ## 🛠 Tech Stack
 
-* Python
-* MoviePy
-* Pillow (PIL)
-* Requests (API-ready)
+* **Python**
+* **MoviePy** – video processing
+* **Pillow (PIL)** – image & caption rendering
+* **Requests** – API integration (ready for extensions)
 
 ---
 
-## ⚙️ Setup
+## ⚙️ Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-video-generation-pipeline.git
+git clone https://github.com/vivek-devda/ai-video-generation-pipeline.git
 cd ai-video-generation-pipeline
 pip install -r requirements.txt
-```
-
----
-
-## ▶️ Run
-
-```bash
 python main.py
 ```
 
 Then enter:
 
-* Topic (e.g. "AI in healthcare")
-* Mode: manual / api
+```
+Topic: AI in healthcare
+Mode: manual / api
+```
+
+---
+
+## 🎯 Why This Project?
+
+Modern AI applications are not just models — they are **pipelines** that combine multiple components like prompting, media generation, and orchestration.
+
+This project focuses on building such a system from scratch, simulating real-world AI content generation workflows used in:
+
+* Marketing automation
+* YouTube content generation
+* AI media tools
+
+---
+
+## 🧠 System Design Highlights
+
+* Modular pipeline architecture
+* Separation of concerns (prompt → image → video)
+* Extensible for API integrations (image generation, TTS)
+* Supports both manual and automated workflows
+
+---
+
+## ⚠️ Challenges & Learnings
+
+* Debugging media processing and library compatibility issues
+* Designing a clean pipeline flow across multiple components
+* Managing transitions between text, images, and video
+* Understanding real-world AI system design beyond simple scripts
 
 ---
 
 ## 📈 Future Improvements
 
-* 🔸 Full API-based image generation
-* 🔸 Voiceover (text-to-speech)
-* 🔸 Better scene transitions
-* 🔸 Web interface
+* Full API-based image generation
+* Text-to-speech voiceover integration
+* Improved transitions and animations
+* CLI-based input support (`--topic`, `--mode`)
+* Web interface for non-technical users
 
 ---
 
 ## 💡 Motivation
 
-This project started as an experiment with no-code tools (n8n). It helped me quickly prototype the idea, but I realized I wanted more control and flexibility.
-
-So I rebuilt the entire pipeline from scratch in Python, making it modular and extensible.
+This project was initially prototyped using no-code tools (n8n).
+It was later rebuilt entirely in Python to gain deeper control, flexibility, and a better understanding of backend AI systems.
 
 ---
 
 ## 📬 Feedback
 
-Open to suggestions and improvements!
+Open to suggestions, improvements, and collaboration!
+
+---
+
+## 👨‍💻 Author
+
+**Vivek Devda**
+B.Tech Artificial Intelligence & Machine Learning
+
+GitHub: https://github.com/vivek-devda
