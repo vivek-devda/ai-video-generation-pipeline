@@ -1,8 +1,9 @@
 # 🎬 AI Video Generation Pipeline
 
-An AI-powered pipeline that transforms a simple text prompt into a structured multi-scene video with captions, visuals, and background music.
+## Focus
+This project demonstrates modular pipeline design for AI systems, including structured processing, fallback handling, and extensibility toward API-based automation workflows.
 
-This project demonstrates how real-world AI systems are built using modular pipelines, media processing, and automation workflows.
+While currently focused on media generation, the architecture reflects patterns used in backend automation pipelines.
 
 ---
 
