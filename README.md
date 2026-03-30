@@ -14,6 +14,24 @@ While currently focused on media generation, the architecture reflects patterns 
 **Example Input:**
 "AI in healthcare"
 
+## Flask API (Backend Simulation)
+
+This project includes a Flask API layer to simulate how the pipeline can be deployed as a backend service.
+
+Endpoint:
+POST /generate
+
+Example:
+{
+  "topic": "AI in healthcare"
+}
+
+Returns:
+{
+  "status": "success",
+  "output": "outputs/final_video.mp4"
+}
+
 **Output:**
 A short multi-scene video with captions, transitions, and music.
 
