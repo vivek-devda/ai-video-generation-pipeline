@@ -116,16 +116,19 @@ Final Video Output
 ---
 
 ## 📂 Project Structure
+
+```
 project/
 ├── main.py
 ├── app.py
 ├── pipeline/
-│ ├── prompt.py
-│ ├── image.py
-│ ├── caption.py
-│ └── video.py
+│   ├── prompt.py
+│   ├── image.py
+│   ├── caption.py
+│   └── video.py
 ├── assets/
 ├── outputs/
+```
 
 ---
 
