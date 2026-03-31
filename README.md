@@ -78,6 +78,15 @@ Final Video Output
 
 ---
 
+## ⚙️ Robustness
+
+- Handles missing images using fallback assets
+- Prevents full pipeline failure due to partial errors
+- Ensures video generation completes even with incomplete inputs
+- Designed for stable execution across multiple test runs
+
+---
+
 ## 📂 Sample Output
 
 * 🎬 Format: MP4
@@ -103,6 +112,23 @@ Final Video Output
 * MoviePy (video processing)
 * Pillow / PIL (image + captions)
 * Requests (API-ready integration)
+
+---
+
+## 📂 Project Structure
+
+```
+project/
+├── main.py
+├── app.py
+├── pipeline/
+│   ├── prompt.py
+│   ├── image.py
+│   ├── caption.py
+│   └── video.py
+├── assets/
+├── outputs/
+```
 
 ---
 
@@ -134,12 +160,31 @@ This project simulates real-world AI content systems used in:
 
 ---
 
+## 💼 Use Cases
+
+- AI-generated educational videos
+- Social media content automation
+- Marketing and promotional video generation
+- Rapid prototyping for AI media tools
+
+---
+
 ## 🧠 System Design Highlights
 
 * Modular pipeline architecture
 * Separation of concerns (prompt → image → video)
 * Extensible for API integrations (image generation, TTS)
 * Designed for both manual and automated workflows
+
+---
+
+## 🧠 Design Decisions
+
+- Built as a modular pipeline instead of a monolithic script to improve scalability and maintainability
+- Separated prompt generation from rendering to allow flexible content control
+- Designed image layer to support both manual assets and future API integrations
+- Used step-wise processing to make debugging and iteration easier
+- Prioritized reliability by allowing partial pipeline execution even with missing inputs
 
 ---
 
@@ -158,6 +203,17 @@ The pipeline is designed to support full API-based image generation, making it e
 * Improved transitions and animations
 * CLI support (`--topic`, `--mode`)
 * Web interface for non-technical users
+
+---
+
+## 🔌 Extensibility
+
+The system is designed to easily integrate:
+
+- Text-to-Image models (Stable Diffusion, APIs)
+- Text-to-Speech (voice narration)
+- Frontend interfaces (web apps)
+- Scheduling and automation workflows
 
 ---
 
