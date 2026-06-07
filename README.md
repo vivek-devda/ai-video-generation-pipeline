@@ -1,9 +1,10 @@
 # 🎬 AI Video Generation Pipeline
 
-## Focus
-This project demonstrates modular pipeline design for AI systems, including structured processing, fallback handling, and extensibility toward API-based automation workflows.
+## Overview
 
-While currently focused on media generation, the architecture reflects patterns used in backend automation pipelines.
+This project is a Python-based media automation pipeline that transforms a user-provided topic into a captioned multi-scene video through automated content generation, media processing, and video composition.
+
+The system follows a modular workflow where content generation, media processing, and video rendering are separated into independent components. The architecture is designed to be easily extended with future integrations such as image-generation APIs, text-to-speech systems, and web interfaces.
 
 ---
 
@@ -14,59 +15,91 @@ While currently focused on media generation, the architecture reflects patterns 
 **Example Input:**
 "AI in healthcare"
 
-## Flask API (Backend Simulation)
+## Features
 
-This project includes a Flask API layer to simulate how the pipeline can be deployed as a backend service.
-
-Endpoint:
-POST /generate
-
-Example:
-{
-  "topic": "AI in healthcare"
-}
-
-Returns:
-{
-  "status": "success",
-  "output": "outputs/final_video.mp4"
-}
-
-**Output:**
-A short multi-scene video with captions, transitions, and music.
+* Topic-based content generation
+* Template-driven scene and caption creation
+* Automatic caption overlay on images
+* Multi-scene video compilation
+* Fade-in and fade-out transitions
+* Background music integration
+* MP4 video export
+* Modular and extensible architecture
 
 ---
 
-## ⚡ What This Does
+## 🧩 Pipeline Workflow
 
-**Input:**
-"AI in healthcare"
-
-**Output:**
-
-* Structured story-based script
-* Scene-wise captions
-* Visual sequence (manual / API-ready)
-* Final compiled video (MP4)
+```
+User Topic
+ ↓
+Prompt Generator
+ ↓
+Caption Generator
+ ↓
+Image Source
+ ↓
+Caption Rendering (Pillow)
+ ↓
+Video Composition (MoviePy)
+ ↓
+Final MP4 Output
+```
 
 ---
 
-## 🧩 Pipeline Overview
+# Example
+
+Input:
+
+AI in Healthcare
+
+Generated Scenes:
+
+1. Daily challenges related to AI in healthcare
+2. Emerging AI technologies
+3. AI assisting people in real-world scenarios
+4. Improved quality of life through AI
+5. Future collaboration between humans and AI
+
+Output:
+
+Captioned images
+Background music
+Compiled MP4 video
+
+---
+
+
+## 🛠 Tech Stack
+
+* Python
+* MoviePy (video processing)
+* Pillow / PIL (image + captions)
+* textwrap
+
+---
+
+## Engineering Highlights
+
+* Designed a modular pipeline architecture with clearly separated responsibilities.
+* Implemented reusable processing stages for prompt generation, media processing, and video rendering.
+* Applied automation principles to transform a simple user input into a complete media output.
+* Structured the project for future integration with image-generation APIs and text-to-speech systems.
+
+---
+
+## 📂 Project Structure
 
 ```
-User Input (Topic)
-        ↓
-Prompt Generator (structured narrative)
-        ↓
-Image Source (manual / API-ready)
-        ↓
-Caption Overlay (PIL)
-        ↓
-Video Builder (MoviePy)
-        ↓
-Final Video Output
+project/
+├── main.py
+├── prompt_generator.py
+├── image_generator.py
+├── video_builder.py
+├── assets/
+├── outputs/
 ```
-
 ---
 
 ## 📊 Results
@@ -74,16 +107,6 @@ Final Video Output
 * Generated 20+ test videos
 * Avg generation time: ~15–30 seconds
 * Supports multi-scene narrative structure
-* Handles missing images with fallback logic
-
----
-
-## ⚙️ Robustness
-
-- Handles missing images using fallback assets
-- Prevents full pipeline failure due to partial errors
-- Ensures video generation completes even with incomplete inputs
-- Designed for stable execution across multiple test runs
 
 ---
 
@@ -93,58 +116,6 @@ Final Video Output
 * ⏱ Duration: ~30–60 seconds
 * 🎞 Scenes: 4–6
 * 📁 Output: `outputs/final_video.mp4`
-
----
-
-## 🚀 Features
-
-* Converts a simple idea into a structured video pipeline
-* Modular architecture (easy to extend)
-* Caption overlay for each scene
-* Video creation with transitions and background music
-* Designed for automation workflows
-
----
-
-## 🛠 Tech Stack
-
-* Python
-* MoviePy (video processing)
-* Pillow / PIL (image + captions)
-* Requests (API-ready integration)
-
----
-
-## 📂 Project Structure
-
-```
-project/
-├── main.py
-├── app.py
-├── pipeline/
-│   ├── prompt.py
-│   ├── image.py
-│   ├── caption.py
-│   └── video.py
-├── assets/
-├── outputs/
-```
-
----
-
-## ⚙️ Quick Start
-
-```bash
-git clone https://github.com/YOUR_USERNAME/ai-video-generation-pipeline.git
-cd ai-video-generation-pipeline
-pip install -r requirements.txt
-python main.py
-```
-
-Then enter:
-
-* Topic: "AI in healthcare"
-* Mode: manual / api
 
 ---
 
@@ -169,22 +140,13 @@ This project simulates real-world AI content systems used in:
 
 ---
 
-## 🧠 System Design Highlights
-
-* Modular pipeline architecture
-* Separation of concerns (prompt → image → video)
-* Extensible for API integrations (image generation, TTS)
-* Designed for both manual and automated workflows
-
----
-
 ## 🧠 Design Decisions
 
 - Built as a modular pipeline instead of a monolithic script to improve scalability and maintainability
 - Separated prompt generation from rendering to allow flexible content control
 - Designed image layer to support both manual assets and future API integrations
 - Used step-wise processing to make debugging and iteration easier
-- Prioritized reliability by allowing partial pipeline execution even with missing inputs
+- Designed the workflow as independent processing stages to simplify debugging and future enhancements.
 
 ---
 
@@ -222,6 +184,33 @@ The system is designed to easily integrate:
 This project was initially prototyped using no-code tools (n8n), then rebuilt from scratch in Python to gain deeper control over system design and automation workflows.
 
 ---
+
+## Key Learning Outcomes
+
+- Modular software design
+- Media processing pipelines
+- Workflow orchestration
+- Automation system development
+- Extensible architecture design
+
+---
+
+## ⚙️ Quick Start
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-video-generation-pipeline.git
+cd ai-video-generation-pipeline
+pip install -r requirements.txt
+python main.py
+```
+
+Then enter:
+
+- Topic: AI in healthcare
+- Mode: manual
+
+---
+
 
 ## 📬 Feedback
 
