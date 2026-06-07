@@ -64,9 +64,9 @@ Generated Scenes:
 
 Output:
 
-Captioned images
-Background music
-Compiled MP4 video
+- Captioned images
+- Background music
+- Compiled MP4 video
 
 ---
 
@@ -84,7 +84,7 @@ Compiled MP4 video
 
 * Designed a modular pipeline architecture with clearly separated responsibilities.
 * Implemented reusable processing stages for prompt generation, media processing, and video rendering.
-* Applied automation principles to transform a simple user input into a complete media output.
+* Applied workflow automation principles to transform a user-provided topic into a complete media output through multiple processing stages.
 * Structured the project for future integration with image-generation APIs and text-to-speech systems.
 
 ---
@@ -154,7 +154,7 @@ This project simulates real-world AI content systems used in:
 
 Currently, images are manually sourced for demonstration purposes.
 
-The pipeline is designed to support full API-based image generation, making it easily extendable into a fully automated system.
+The image layer was intentionally separated from the rendering pipeline to simplify future integration with image-generation APIs and automated media workflows.
 
 ---
 
