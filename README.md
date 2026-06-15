@@ -199,7 +199,7 @@ This project was initially prototyped using no-code tools (n8n), then rebuilt fr
 ## ⚙️ Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-video-generation-pipeline.git
+git clone https://github.com/vivek-devda/ai-video-generation-pipeline.git
 cd ai-video-generation-pipeline
 pip install -r requirements.txt
 python main.py
