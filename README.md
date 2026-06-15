@@ -2,9 +2,7 @@
 
 ## Overview
 
-This project is a Python-based media automation pipeline that transforms a user-provided topic into a captioned multi-scene video through automated content generation, media processing, and video composition.
-
-The system follows a modular workflow where content generation, media processing, and video rendering are separated into independent components. The architecture is designed to be easily extended with future integrations such as image-generation APIs, text-to-speech systems, and web interfaces.
+Multi-stage AI content generation pipeline with automated media processing and video rendering workflows.
 
 ---
 
