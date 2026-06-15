@@ -2,7 +2,10 @@
 
 ## Overview
 
-Multi-stage AI content generation pipeline with automated media processing and video rendering workflows.
+## 🎬 Overview
+
+A multi-stage AI content generation pipeline that transforms a user-provided topic into a complete video through automated content generation, media processing, and video rendering workflows.
+
 
 ---
 
