@@ -1,11 +1,10 @@
 # 🎬 AI Video Generation Pipeline
 
-## Overview
-
 ## 🎬 Overview
 
-A multi-stage AI content generation pipeline that transforms a user-provided topic into a complete video through automated content generation, media processing, and video rendering workflows.
+A multi-stage video generation pipeline that transforms a user-provided topic into a captioned MP4 video through template-based content generation, media processing, and automated rendering workflows.
 
+The project demonstrates modular software design, media processing automation, and extensible pipeline architecture for future AI integrations.
 
 ---
 
@@ -34,11 +33,10 @@ A multi-stage AI content generation pipeline that transforms a user-provided top
 ```
 User Topic
  ↓
-Prompt Generator
+Template-Based Prompt & Caption Generation
  ↓
-Caption Generator
- ↓
-Image Source
+Manual Image Selection
+(Future: API-Based Images)
  ↓
 Caption Rendering (Pillow)
  ↓
@@ -75,9 +73,9 @@ Output:
 ## 🛠 Tech Stack
 
 * Python
-* MoviePy (video processing)
-* Pillow / PIL (image + captions)
-* textwrap
+* MoviePy (video composition and rendering)
+* Pillow (caption rendering and image processing)
+* textwrap (dynamic text formatting)
 
 ---
 
@@ -85,7 +83,7 @@ Output:
 
 * Designed a modular pipeline architecture with clearly separated responsibilities.
 * Implemented reusable processing stages for prompt generation, media processing, and video rendering.
-* Applied workflow automation principles to transform a user-provided topic into a complete media output through multiple processing stages.
+* Applied modular workflow design principles to transform a user-provided topic into a complete media output through multiple independent processing stages.
 * Structured the project for future integration with image-generation APIs and text-to-speech systems.
 
 ---
@@ -105,9 +103,8 @@ project/
 
 ## 📊 Results
 
-* Generated 20+ test videos
-* Avg generation time: ~15–30 seconds
 * Supports multi-scene narrative structure
+* Typical generation time: ~15–30 seconds on local execution
 
 ---
 
@@ -122,7 +119,9 @@ project/
 
 ## 🎯 Why This Project?
 
-Modern AI applications are not just models — they are pipelines that combine multiple components like prompting, media generation, and orchestration.
+Modern content systems are often built as pipelines that combine multiple processing stages such as content generation, media handling, and rendering workflows.
+
+This project focuses on modular design and automation principles while providing extension points for future AI integrations.
 
 This project simulates real-world AI content systems used in:
 
@@ -134,7 +133,7 @@ This project simulates real-world AI content systems used in:
 
 ## 💼 Use Cases
 
-- AI-generated educational videos
+- Educational video generation prototypes
 - Social media content automation
 - Marketing and promotional video generation
 - Rapid prototyping for AI media tools
